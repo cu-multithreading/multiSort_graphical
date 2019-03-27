@@ -49,7 +49,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\include;..\..\..\..\..\..\..\cinder_0.9.1_vc2013\include;..\..\..\..\..\..\..\..\cinder_0.9.1_vc2013\include;../../../../</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include;..\..\..\..\..\..\..\cinder_0.9.1_vc2013\include;..\..\..\..\..\..\..\..\cinder_0.9.1_vc2013\include;../;../zlib/</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0601;_WINDOWS;NOMINMAX;_DEBUG;ZLIB_USING_CINDER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -108,31 +108,31 @@
   <ItemGroup />
   <ItemGroup />
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\zlib\cryptography.cpp" />
-    <ClCompile Include="..\..\..\..\zlib\draw.cpp" />
-    <ClCompile Include="..\..\..\..\zlib\fileIO.cpp" />
-    <ClCompile Include="..\..\..\..\zlib\general.cpp" />
-    <ClCompile Include="..\..\..\..\zlib\input.cpp" />
-    <ClCompile Include="..\..\..\..\zlib\math.cpp" />
-    <ClCompile Include="..\..\..\..\zlib\model.cpp" />
-    <ClCompile Include="..\..\..\..\zlib\varConv.cpp" />
-    <ClCompile Include="..\..\..\..\zlib\varTypes.cpp" />
-    <ClCompile Include="..\..\..\..\zlib\windInfo.cpp" />
     <ClCompile Include="..\src\multiSort_GraphicalApp.cpp" />
+    <ClCompile Include="..\zlib\cryptography.cpp" />
+    <ClCompile Include="..\zlib\draw.cpp" />
+    <ClCompile Include="..\zlib\fileIO.cpp" />
+    <ClCompile Include="..\zlib\general.cpp" />
+    <ClCompile Include="..\zlib\input.cpp" />
+    <ClCompile Include="..\zlib\model.cpp" />
+    <ClCompile Include="..\zlib\network.cpp" />
+    <ClCompile Include="..\zlib\var.cpp" />
+    <ClCompile Include="..\zlib\windInfo.cpp" />
+    <ClCompile Include="..\zlib\zmath.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\zlib\cryptography.h" />
-    <ClInclude Include="..\..\..\..\zlib\draw.h" />
-    <ClInclude Include="..\..\..\..\zlib\fileIO.h" />
-    <ClInclude Include="..\..\..\..\zlib\general.h" />
-    <ClInclude Include="..\..\..\..\zlib\input.h" />
-    <ClInclude Include="..\..\..\..\zlib\math.h" />
-    <ClInclude Include="..\..\..\..\zlib\model.h" />
-    <ClInclude Include="..\..\..\..\zlib\varConv.h" />
-    <ClInclude Include="..\..\..\..\zlib\varTypes.h" />
-    <ClInclude Include="..\..\..\..\zlib\windInfo.h" />
-    <ClInclude Include="..\..\..\..\zlib\zlib.h" />
     <ClInclude Include="..\include\Resources.h" />
+    <ClInclude Include="..\zlib\cryptography.h" />
+    <ClInclude Include="..\zlib\draw.h" />
+    <ClInclude Include="..\zlib\fileIO.h" />
+    <ClInclude Include="..\zlib\general.h" />
+    <ClInclude Include="..\zlib\input.h" />
+    <ClInclude Include="..\zlib\model.h" />
+    <ClInclude Include="..\zlib\network.h" />
+    <ClInclude Include="..\zlib\var.h" />
+    <ClInclude Include="..\zlib\windInfo.h" />
+    <ClInclude Include="..\zlib\zlib.h" />
+    <ClInclude Include="..\zlib\zmath.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

@@ -26,34 +26,34 @@
     <ClInclude Include="..\include\Resources.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\..\..\zlib\fileIO.cpp">
+    <ClCompile Include="..\zlib\fileIO.cpp">
       <Filter>zlib</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\zlib\general.cpp">
+    <ClCompile Include="..\zlib\general.cpp">
       <Filter>zlib</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\zlib\input.cpp">
+    <ClCompile Include="..\zlib\input.cpp">
       <Filter>zlib</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\zlib\math.cpp">
+    <ClCompile Include="..\zlib\model.cpp">
       <Filter>zlib</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\zlib\model.cpp">
+    <ClCompile Include="..\zlib\network.cpp">
       <Filter>zlib</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\zlib\varConv.cpp">
+    <ClCompile Include="..\zlib\var.cpp">
       <Filter>zlib</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\zlib\varTypes.cpp">
+    <ClCompile Include="..\zlib\windInfo.cpp">
       <Filter>zlib</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\zlib\windInfo.cpp">
+    <ClCompile Include="..\zlib\zmath.cpp">
       <Filter>zlib</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\zlib\cryptography.cpp">
+    <ClCompile Include="..\zlib\cryptography.cpp">
       <Filter>zlib</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\zlib\draw.cpp">
+    <ClCompile Include="..\zlib\draw.cpp">
       <Filter>zlib</Filter>
     </ClCompile>
   </ItemGroup>
@@ -61,37 +61,37 @@
     <ClInclude Include="..\include\Resources.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\zlib\fileIO.h">
+    <ClInclude Include="..\zlib\draw.h">
       <Filter>zlib</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\zlib\general.h">
+    <ClInclude Include="..\zlib\fileIO.h">
       <Filter>zlib</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\zlib\input.h">
+    <ClInclude Include="..\zlib\general.h">
       <Filter>zlib</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\zlib\math.h">
+    <ClInclude Include="..\zlib\input.h">
       <Filter>zlib</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\zlib\model.h">
+    <ClInclude Include="..\zlib\model.h">
       <Filter>zlib</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\zlib\varConv.h">
+    <ClInclude Include="..\zlib\network.h">
       <Filter>zlib</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\zlib\varTypes.h">
+    <ClInclude Include="..\zlib\var.h">
       <Filter>zlib</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\zlib\windInfo.h">
+    <ClInclude Include="..\zlib\windInfo.h">
       <Filter>zlib</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\zlib\zlib.h">
+    <ClInclude Include="..\zlib\zlib.h">
       <Filter>zlib</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\zlib\cryptography.h">
+    <ClInclude Include="..\zlib\zmath.h">
       <Filter>zlib</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\zlib\draw.h">
+    <ClInclude Include="..\zlib\cryptography.h">
       <Filter>zlib</Filter>
     </ClInclude>
   </ItemGroup>

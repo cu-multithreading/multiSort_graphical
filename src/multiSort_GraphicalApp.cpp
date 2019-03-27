@@ -33,8 +33,7 @@ using std::endl;
 
 #ifndef __linux__
 #include "zlib/general.h"
-#include "zlib/varTypes.h"
-#include "zlib/varConv.h"
+#include "zlib/var.h"
 #else
 #include "general.h"
 #include "varTypes.h"
