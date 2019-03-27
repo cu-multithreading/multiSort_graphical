@@ -648,7 +648,7 @@ void multiSort_GraphicalApp::setup()
 	current->setSize(wind_width, wind_height);
 #endif
 
-	current->setFullScreen(true);
+	//current->setFullScreen(true);
 
 	//This line should position the window on the left edge of the second monitor (theoretically)
 	//current->setPos(1920 + (1600 - wind_width), 30);
