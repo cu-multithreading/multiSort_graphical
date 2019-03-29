@@ -41,8 +41,8 @@ using std::endl;
 #endif
 
 const unsigned data_length = std::pow(10, 5);		//2 E 5 is pretty much the upper limit for the number of values that can be sorted in a reasonable amount of time.
-const unsigned max_threads = 8;
-const unsigned min_threads = 1;
+const unsigned max_threads = 16;
+const unsigned min_threads = 2;
 
 const unsigned dataGen_maxValue = 10000;
 
@@ -183,12 +183,15 @@ namespace data
 	runtimeStats * current;
 	runtimeStats current_cache;	//A cached version of the current stats
 
+
+	runtimeStats stats_16thr;
+	runtimeStats stats_12thr;
 	runtimeStats stats_8thr;
 	runtimeStats stats_4thr;
 	runtimeStats stats_2thr;
-	runtimeStats stats_1thr;
+	//runtimeStats stats_1thr;
 
-	timePair threadStats[8];
+	timePair threadStats[16];	//Expanded to 16 from 8, I assume this contains the data for the currently executing job //TODO: Verify this
 
 	unsigned currThreadBatchExecuting = -1;
 
@@ -569,6 +572,10 @@ namespace sortDemo
 		
 		while(true)
 		{
+			runSortFor(16);
+			data::stats_16thr = multiSort::stats;
+			runSortFor(12);
+			data::stats_12thr = multiSort::stats;
 			runSortFor(8);
 			data::stats_8thr = multiSort::stats;
 			runSortFor(4);
@@ -649,6 +656,7 @@ void multiSort_GraphicalApp::setup()
 #endif
 
 	//current->setFullScreen(true);
+	//TODO: turn this back on
 
 	//This line should position the window on the left edge of the second monitor (theoretically)
 	//current->setPos(1920 + (1600 - wind_width), 30);
@@ -812,13 +820,19 @@ void multiSort_GraphicalApp::draw()
 		};
 
 		vector<pair<int, int>> bars;
-		bars.push_back({53, 40});
-		bars.push_back({40, 35});
+		bars.push_back({53, 40});	//Top bar (currently executing)
+
+		bars.push_back({40, 35});	//Time scale
+
+		//TODO: Create another bar for the 16 thread example (currently drawn in the time scale)
+
+		//Execution tests
 		bars.push_back({35, 30});
 		bars.push_back({30, 25});
 		bars.push_back({25, 20});
 		bars.push_back({20, 15});
-		bars.push_back({15, 0});
+
+		bars.push_back({15, 0});	//Dataset visualization
 
 		drawBars(bars);
 	}
@@ -832,10 +846,12 @@ void multiSort_GraphicalApp::draw()
 		drawThreadProgressBars(statRef, 53, 40, var::color_RGB::GREEN());
 
 		//The rest
-		drawThreadProgressBars(&data::stats_8thr, 35, 30);
-		drawThreadProgressBars(&data::stats_4thr, 30, 25);
-		drawThreadProgressBars(&data::stats_2thr, 25, 20);
-		drawThreadProgressBars(&data::stats_1thr, 20, 15);
+		drawThreadProgressBars(&data::stats_16thr, 40, 35);	//TODO: Move to its own box (currently drawn in the time scale)
+		drawThreadProgressBars(&data::stats_12thr, 35, 30);
+		drawThreadProgressBars(&data::stats_8thr, 30, 25);
+		drawThreadProgressBars(&data::stats_4thr, 25, 20);
+		drawThreadProgressBars(&data::stats_2thr, 20, 15);
+		//drawThreadProgressBars(&data::stats_1thr, 20, 15);
 	}
 
 
