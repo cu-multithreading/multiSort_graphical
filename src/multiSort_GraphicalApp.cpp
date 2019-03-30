@@ -748,7 +748,7 @@ void chartDataset(unsigned * dataset, unsigned data_len = data_length)
 const unsigned FONT_SIZE = 50;
 
 
-unsigned timeline_length = 3 * 60;	//In seconds
+unsigned timeline_length = 3*60;	//In seconds
 
 double timeScale = (double)100 / timeline_length;	//Screen Units per Second
 
@@ -776,7 +776,7 @@ void drawThreadProgressBars(runtimeStats * source, unsigned sect_top, unsigned s
 				time = source->sorting[i].duration();
 			}
 
-			double xSize = (double)100 * time / timeScale;
+			double xSize = (double)window::getScaleTotal() * time / timeScale;
 
 			double thread_box_ySize = float(sect_top - sect_bot) / source->_num_threads;	//Get the y-size of each thread drawn
 
@@ -862,14 +862,14 @@ void multiSort_GraphicalApp::draw()
 
 	{
 		const unsigned numSegs = 10;
-		double chunkX = 100 / numSegs;
+		double chunkX = (double)window::getScaleTotal() / numSegs;	//The distance between two time markers
 		for(unsigned i = 1; i < numSegs - 1; i++)
 		{
 			draw::drawRect(var::coord2(i * chunkX - window::unscaleX(5), (40)), var::coord2(i * chunkX + window::unscaleX(5), (35)), var::coord2(), 0, false, false, var::color_RGB::GREEN());
 
 			unsigned stringY = (i % 2 == 0) ? 40 : 38;
 
-			draw::drawStringCentered(conv::toString((i * chunkX /10) / (timeScale)) + " seconds", var::coord2(i * chunkX, (stringY)), false, FONT_SIZE, var::color_RGB::BLUE());
+			draw::drawStringCentered(conv::toString((i * chunkX) / (timeScale*3)) + " seconds", var::coord2(i * chunkX, (stringY)), false, FONT_SIZE, var::color_RGB::BLUE());
 
 
 		}
