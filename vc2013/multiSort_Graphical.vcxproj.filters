@@ -26,6 +26,9 @@
     <ClInclude Include="..\include\Resources.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClCompile Include="..\zlib\draw.cpp">
+      <Filter>zlib</Filter>
+    </ClCompile>
     <ClCompile Include="..\zlib\fileIO.cpp">
       <Filter>zlib</Filter>
     </ClCompile>
@@ -51,9 +54,6 @@
       <Filter>zlib</Filter>
     </ClCompile>
     <ClCompile Include="..\zlib\cryptography.cpp">
-      <Filter>zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\zlib\draw.cpp">
       <Filter>zlib</Filter>
     </ClCompile>
   </ItemGroup>

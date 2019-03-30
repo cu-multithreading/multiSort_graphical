@@ -655,9 +655,12 @@ void multiSort_GraphicalApp::setup()
 	current->setSize(wind_width, wind_height);
 #endif
 
-	//current->setFullScreen(true);
-	//TODO: turn this back on
+	//Sleep(5 * 1000);
 
+	
+	current->setPos(2 * 1920 + 50, 50); //fingers crossed this puts it on the testing monitor (one used at the demo)  //TODO: Remove this during the actual demo, as only the one screen will be there
+	current->setFullScreen(true);
+	
 	//This line should position the window on the left edge of the second monitor (theoretically)
 	//current->setPos(1920 + (1600 - wind_width), 30);
 	//current->setPos(-wind_width-1, 120);
@@ -860,7 +863,7 @@ void multiSort_GraphicalApp::draw()
 	{
 		const unsigned numSegs = 10;
 		double chunkX = 100 / numSegs;
-		for(unsigned i = 1; i < numSegs; i++)
+		for(unsigned i = 1; i < numSegs - 1; i++)
 		{
 			draw::drawRect(var::coord2(i * chunkX - window::unscaleX(5), (40)), var::coord2(i * chunkX + window::unscaleX(5), (35)), var::coord2(), 0, false, false, var::color_RGB::GREEN());
 
@@ -875,7 +878,7 @@ void multiSort_GraphicalApp::draw()
 	}
 	draw::drawStringLeft("Dataset Visualization", var::coord2(0, 15), false, FONT_SIZE, var::color_RGB::BLUE());
 
-	draw::drawStringCentered("Sorting algorithm execution time vs. Number of threads used", var::coord2(50, 57), false, FONT_SIZE, var::color_RGB::GREEN());
+	draw::drawStringCentered("Sorting algorithm execution time vs. Number of threads used", var::coord2(50, 56), false, FONT_SIZE, var::color_RGB::GREEN());
 	
 	gl::color(Color(0, 0, 0));
 	//draw::drawStringCentered(data::sortStatus, var::coord2(50, 50));
