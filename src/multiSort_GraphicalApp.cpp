@@ -44,7 +44,8 @@ const unsigned data_length = std::pow(10, 5);		//2 E 5 is pretty much the upper 
 const unsigned max_threads = 16;
 const unsigned min_threads = 2;
 
-const unsigned dataGen_maxValue = 10000;
+//const 
+unsigned dataGen_maxValue = 10000;
 
 #ifdef auto_size
 const unsigned wind_width = 920;
@@ -599,7 +600,20 @@ namespace sortDemo
 				app::console() << dataStats::min << endl;
 				app::console() << dataStats::max << endl;
 				app::console() << dataStats::average << endl;
+
+				unsigned center = dataStats::max - dataStats::min;
+				center /= 2;
+
+				double diff = dataStats::average - center;
+				app::console() << dataStats::average << " vs. " << center << " | " << diff << endl;
+				if(abs(diff) > 10)
+				{
+					dataGen_maxValue -= diff / 5;
+					app::console() << "New value: " << dataGen_maxValue << endl;
+				}
 			}
+			Sleep(250);
+			continue;
 			runSortFor(16);
 			data::stats_16thr = multiSort::stats;
 			runSortFor(12);
