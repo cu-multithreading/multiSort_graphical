@@ -44,7 +44,7 @@ const unsigned data_length = std::pow(10, 5);		//2 E 5 is pretty much the upper 
 const unsigned max_threads = 16;
 const unsigned min_threads = 2;
 
-const unsigned dataGen_maxValue = 10000;
+const unsigned dataGen_maxValue = 10000 + 951;	//offset from 10K b/c data generator favors lower values a little.  This offset corrects it back upward, bringing the dataset average back towards the 'center'
 
 #ifdef auto_size
 const unsigned wind_width = 920;
