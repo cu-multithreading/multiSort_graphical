@@ -53,6 +53,13 @@ const unsigned wind_height = 828;
 
 unsigned * knownDataset;
 
+namespace dataStats
+{
+	double average;
+	double min;
+	double max;
+};
+
 zlib::timer zClock;
 
 std::vector<std::thread> threads;	//Threads spawned by sortDemo::multiSort::multiSort().  Accessable here so they can be nuked during program termination.
@@ -572,6 +579,27 @@ namespace sortDemo
 		
 		while(true)
 		{
+			knownDataset = new unsigned[data_length];
+			sortDemo::genRand(knownDataset);
+			//Calculate statistics
+			{
+				//Seed stat values
+				dataStats::min = dataGen_maxValue;
+				dataStats::max = 0;
+				dataStats::average = 0;
+				for(int i = 0; i < data_length; i++)
+				{
+					if(knownDataset[i] > dataStats::max) dataStats::max = knownDataset[i];
+					if(knownDataset[i] < dataStats::min) dataStats::min = knownDataset[i];
+
+					dataStats::average += (double)knownDataset[i] / data_length;
+				}
+
+				app::console() << "Stats block:" << endl;
+				app::console() << dataStats::min << endl;
+				app::console() << dataStats::max << endl;
+				app::console() << dataStats::average << endl;
+			}
 			runSortFor(16);
 			data::stats_16thr = multiSort::stats;
 			runSortFor(12);
@@ -673,9 +701,6 @@ void multiSort_GraphicalApp::setup()
 	gl::enableAlphaBlending();
 
 	data::current_cache._num_threads = -1;
-
-	knownDataset = new unsigned[data_length];
-	sortDemo::genRand(knownDataset);
 
 	sortController = std::thread(sortDemo::runDemo);
 }
@@ -879,6 +904,8 @@ void multiSort_GraphicalApp::draw()
 	draw::drawStringLeft("Dataset Visualization", var::coord2(0, 15), false, FONT_SIZE, var::color_RGB::BLUE());
 
 	draw::drawStringCentered("Sorting algorithm execution time vs. Number of threads used", var::coord2(50, 56), false, FONT_SIZE, var::color_RGB::GREEN());
+
+	draw::drawStringRight("Avg: " + conv::toString(dataStats::average), var::coord2(100, 2), false, FONT_SIZE, var::color_RGB::GREEN());
 	
 	gl::color(Color(0, 0, 0));
 	//draw::drawStringCentered(data::sortStatus, var::coord2(50, 50));
