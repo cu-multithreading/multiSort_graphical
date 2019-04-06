@@ -686,7 +686,7 @@ void multiSort_GraphicalApp::setup()
 	//Sleep(5 * 1000);
 
 	
-	current->setPos(2 * 1920 + 50, 50); //fingers crossed this puts it on the testing monitor (one used at the demo)  //TODO: Remove this during the actual demo, as only the one screen will be there
+	//current->setPos(2 * 1920 + 50, 50); //fingers crossed this puts it on the testing monitor (one used at the demo)  //TODO: Remove this during the actual demo, as only the one screen will be there
 	current->setFullScreen(true);
 	
 	//This line should position the window on the left edge of the second monitor (theoretically)
@@ -901,7 +901,7 @@ void multiSort_GraphicalApp::draw()
 
 
 	}
-	draw::drawStringLeft("Dataset Visualization", var::coord2(0, 15), false, FONT_SIZE, var::color_RGB::BLUE());
+	draw::drawStringLeft("Dataset Visualization", var::coord2(0, 15), false, FONT_SIZE, var::color_RGB::GREEN());
 
 	draw::drawStringCentered("Sorting algorithm execution time vs. Number of threads used", var::coord2(50, 56), false, FONT_SIZE, var::color_RGB::GREEN());
 
