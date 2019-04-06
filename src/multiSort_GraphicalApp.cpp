@@ -906,6 +906,10 @@ void multiSort_GraphicalApp::draw()
 	draw::drawStringCentered("Sorting algorithm execution time vs. Number of threads used", var::coord2(50, 56), false, FONT_SIZE, var::color_RGB::GREEN());
 
 	draw::drawStringRight("Avg: " + conv::toString(dataStats::average), var::coord2(100, 2), false, FONT_SIZE, var::color_RGB::GREEN());
+	draw::drawStringRight("Cntr:" + conv::toString((dataStats::max - dataStats::min) / 2), var::coord2(100, 4), false, FONT_SIZE, var::color_RGB::GREEN());
+
+	draw::drawStringRight("Min: " + conv::toString(dataStats::min), var::coord2(100, 6), false, FONT_SIZE, var::color_RGB::GREEN());
+	draw::drawStringRight("Max: " + conv::toString(dataStats::max), var::coord2(100, 8), false, FONT_SIZE, var::color_RGB::GREEN());
 	
 	gl::color(Color(0, 0, 0));
 	//draw::drawStringCentered(data::sortStatus, var::coord2(50, 50));
